@@ -1,18 +1,19 @@
 
 package Interfazes;
 
-import Clases.Clientesclass;
-import Paneles.Ventas;
 import Clases.Usuariosclass;
 import Clases.Usuariosesion;
 import Conexion.Conexion;
 import Filtros.Filtronumeros;
-import copymax.main;
+import Paneles.Ventas;
 import java.awt.Color;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.text.PlainDocument;
 
 /**
@@ -26,6 +27,7 @@ public class LoginRegistro extends javax.swing.JFrame {
     
     public LoginRegistro() {
         initComponents();
+        
         
     }
 
@@ -380,6 +382,7 @@ public class LoginRegistro extends javax.swing.JFrame {
         if (txtfieldusuario1.getText().equals("Nombre de usuario")){
          txtfieldusuario1.setText("");
          txtfieldusuario1.setForeground(Color.black);
+         
         }
     }//GEN-LAST:event_txtfieldusuario1FocusGained
 
@@ -487,6 +490,7 @@ public class LoginRegistro extends javax.swing.JFrame {
 
     private void txtregcelularFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtregcelularFocusLost
         if (txtregcelular.getText().isEmpty()){
+            
         txtregcelular.setForeground(new Color(204, 204, 204));
         txtregcelular.setText("Celular");
         }
@@ -517,12 +521,48 @@ public class LoginRegistro extends javax.swing.JFrame {
 
     private void ComboRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboRolActionPerformed
        if(ComboRol.getSelectedIndex()==1){
-           
+           JTextField usuarioField = new JTextField();
+                        JPasswordField passwordField = new JPasswordField();
+                        Object[] message = {
+                            "Usuario:", usuarioField,
+                            "Contraseña:", passwordField
+                        };
+
+                        int option = JOptionPane.showConfirmDialog(null, message, "Ingrese autorizacion de Administrador", JOptionPane.OK_CANCEL_OPTION);
+                        if (option == JOptionPane.OK_OPTION) {
+                            String usuario = usuarioField.getText();
+                            String contrasena = new String(passwordField.getPassword());
+
+                            if (validarAdministrador(usuario, contrasena)) {
+                                ComboRol.setSelectedIndex(1);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Credenciales incorrectas. No puede ser Administrador");
+                                ComboRol.setSelectedIndex(0);
+                            }
+                        }
        }   
                   
        
     }//GEN-LAST:event_ComboRolActionPerformed
 
+     public boolean validarAdministrador(String nombreUsuario, String contraseña) {
+    Conexion conex = new Conexion();
+    String consulta = "SELECT Nombreusuario, Rol FROM Usuario WHERE Nombreusuario = ? AND Contraseña = ?";
+    try (PreparedStatement pst = conex.getConnection().prepareStatement(consulta)) {
+        pst.setString(1, nombreUsuario);
+        pst.setString(2, contraseña);
+        
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            String rol = rs.getString("Rol");
+            return "Administrador".equals(rol);
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al validar usuario: " + e.toString());
+    }
+    return false;
+    }
+    
     private void txtregcontraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtregcontraseñaFocusGained
        
       if (txtregcontraseña.getText().equals("Contraseña")){
@@ -583,27 +623,37 @@ public class LoginRegistro extends javax.swing.JFrame {
        System.out.println(usuarios.getNombreUsuario());
        System.out.println(usuarios.getCelular());
        System.out.println(usuarios.getContraseña());
-        System.out.println(usuarios.getRol());
-        
-        agregarusuario(usuarios);
+       System.out.println(usuarios.getRol());
+       limpiarEntradas();
+       PanelIngreso.setVisible(true);
+       agregarusuario(usuarios);
        
+      
     }//GEN-LAST:event_BtnRegistrarActionPerformed
 
+    private void limpiarEntradas(){
+        
+        txtregistroNombre.setText("Nombre de Usuario");
+        txtregcelular.setText("Celular");
+        txtfielregistrapellidos.setText("Apellidos");
+        txtfieldregisNombreUsuario.setText("Nombre de Usuario");
+        txtregcontraseña.setText("Contraseña");
+        txtregcelular.setText("Celular");
+        txtregcontraseña.setEchoChar('*');
+    }
+    
     private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
-    String nombreUsuario = txtfieldusuario1.getText();
+   String nombreUsuario = txtfieldusuario1.getText();
     String contraseña = new String(Jpassingreso.getPassword());
-    
-        System.out.println(nombreUsuario);
-        System.out.println(contraseña);
-    
+
     if (validarUsuario(nombreUsuario, contraseña)) {
-        // Credenciales válidas, mostrar la ventana principal
         JOptionPane.showMessageDialog(null, "Ingreso exitoso");
+        Ventas.getInstance().actualizarDatosUsuario();
         Interfazprincipal ventana = new Interfazprincipal();
         ventana.setVisible(true);
         this.dispose(); // Cerrar la ventana de login
+        
     } else {
-        // Credenciales inválidas, mostrar mensaje de error
         JOptionPane.showMessageDialog(null, "Nombre de usuario o contraseña incorrectos");
     }
     }//GEN-LAST:event_BtnIngresarActionPerformed
@@ -628,20 +678,21 @@ public class LoginRegistro extends javax.swing.JFrame {
 }
    
    public boolean validarUsuario(String nombreUsuario, String contraseña) {
+           
     Conexion conex = new Conexion();
-    String consulta = "SELECT Nombreusuario, Rol, Nombre,idUsuario FROM Usuario WHERE Nombreusuario = ? AND Contraseña = ?";
+    String consulta = "SELECT Nombreusuario, Rol, Nombre, idUsuario FROM Usuario WHERE Nombreusuario = ? AND Contraseña = ?";
     try (
-            PreparedStatement pst = conex.getConnection().prepareStatement(consulta)) {
+        PreparedStatement pst = conex.getConnection().prepareStatement(consulta)) {
         pst.setString(1, nombreUsuario);
         pst.setString(2, contraseña);
-      
+
         var rs = pst.executeQuery();
         if (rs.next()) {
             String nombre = rs.getString("Nombreusuario");
             String rol = rs.getString("Rol");
             String nombreal = rs.getString("Nombre");
-            int idsuario =rs.getInt("idUsuario");
-            Usuariosesion.getInstance(nombre, rol,nombreal,idsuario); // Guardar información del usuario en la sesión
+            int idusuario = rs.getInt("idUsuario");
+            Usuariosesion.getInstance(nombre, rol, nombreal, idusuario); // Guardar información del usuario en la sesión
             return true;
         }
     } catch (SQLException e) {

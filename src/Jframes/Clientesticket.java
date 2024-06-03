@@ -6,6 +6,8 @@ package Jframes;
 
 import Clases.Clientesclass;
 import Filtros.Filtronumeros;
+import Filtros.Letraseditor;
+import Filtros.Numeroseditor;
 import Paneles.Ventas;
 import java.awt.Color;
 import java.awt.KeyEventDispatcher;
@@ -36,7 +38,28 @@ public class Clientesticket extends javax.swing.JFrame {
         modelo.addColumn("Correo");
         Tablaclientes.setModel(modelo);
         llenarTabla();
+        tabladiseño();
     }
+    
+    private void tabladiseño(){
+    // Asignar el editor personalizado a las columnas específicas
+        Tablaclientes.getColumnModel().getColumn(0).setCellEditor(new Letraseditor()); 
+        Tablaclientes.getColumnModel().getColumn(1).setCellEditor(new Letraseditor());
+        Tablaclientes.getColumnModel().getColumn(2).setCellEditor(new Numeroseditor());
+        if (Tablaclientes.getColumnModel().getColumnCount() > 0) {
+        
+        Tablaclientes.getColumnModel().getColumn(0).setMaxWidth(110);
+        Tablaclientes.getColumnModel().getColumn(1).setMaxWidth(150);       
+        Tablaclientes.getColumnModel().getColumn(2).setMaxWidth(120);
+        Tablaclientes.getColumnModel().getColumn(3).setMaxWidth(160); 
+        Tablaclientes.getColumnModel().getColumn(4).setMaxWidth(220);
+        
+       Tablaclientes.setRowHeight(30);
+     
+}
+    
+    }
+    
   private void agregarKeyListenerGlobal() {
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
             @Override

@@ -72,7 +72,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="lblusuarioactual" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="114" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="lblcliente" min="-2" pref="185" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -80,10 +80,10 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jScrollPane1" pref="360" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                               <Component id="Cuenta" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -431,7 +431,7 @@
                     <Column editable="false" title="Total" type="java.lang.Double"/>
                   </Table>
                 </Property>
-                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="jTableticket.getColumnModel().getColumn(0).setCellEditor(new Numeroseditor());&#xa;&#xa; jTableticket.setRowHeight(30);">
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="78" minWidth="60" prefWidth="30" resizable="true">
                       <Title/>

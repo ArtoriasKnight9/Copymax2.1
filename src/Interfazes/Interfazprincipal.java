@@ -113,7 +113,7 @@ public class Interfazprincipal extends javax.swing.JFrame {
         PanelPadre = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         BtnVenta = new javax.swing.JButton();
-        Estadísticas = new javax.swing.JButton();
+        BtnEstadísticas = new javax.swing.JButton();
         BtnClientes = new javax.swing.JButton();
         Contraer = new javax.swing.JButton();
         Jtxtbusquedaproductos = new javax.swing.JTextField();
@@ -121,7 +121,7 @@ public class Interfazprincipal extends javax.swing.JFrame {
         Btnusuarios = new javax.swing.JButton();
         btnvtasdia = new javax.swing.JButton();
         BtnProductos = new javax.swing.JButton();
-        btnvtasdia1 = new javax.swing.JButton();
+        BtnCerrarsesion = new javax.swing.JButton();
         Panelacambiar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -146,14 +146,14 @@ public class Interfazprincipal extends javax.swing.JFrame {
             }
         });
 
-        Estadísticas.setBackground(new java.awt.Color(204, 255, 255));
-        Estadísticas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Estadísticas.setForeground(new java.awt.Color(0, 0, 0));
-        Estadísticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/entrega-de-pedidos (Custom).png"))); // NOI18N
-        Estadísticas.setText("Estadísticas");
-        Estadísticas.addActionListener(new java.awt.event.ActionListener() {
+        BtnEstadísticas.setBackground(new java.awt.Color(204, 255, 255));
+        BtnEstadísticas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnEstadísticas.setForeground(new java.awt.Color(0, 0, 0));
+        BtnEstadísticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/entrega-de-pedidos (Custom).png"))); // NOI18N
+        BtnEstadísticas.setText("Estadísticas");
+        BtnEstadísticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EstadísticasActionPerformed(evt);
+                BtnEstadísticasActionPerformed(evt);
             }
         });
 
@@ -206,11 +206,11 @@ public class Interfazprincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnVenta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Estadísticas)
+                .addComponent(BtnEstadísticas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnClientes)
                 .addGap(18, 18, 18)
-                .addComponent(Jtxtbusquedaproductos, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                .addComponent(Jtxtbusquedaproductos, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                 .addContainerGap())
         );
         PanelPadreLayout.setVerticalGroup(
@@ -223,7 +223,7 @@ public class Interfazprincipal extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addGroup(PanelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(BtnVenta)
-                                .addComponent(Estadísticas)
+                                .addComponent(BtnEstadísticas)
                                 .addComponent(BtnClientes)
                                 .addComponent(Jtxtbusquedaproductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(PanelPadreLayout.createSequentialGroup()
@@ -270,14 +270,14 @@ public class Interfazprincipal extends javax.swing.JFrame {
             }
         });
 
-        btnvtasdia1.setBackground(new java.awt.Color(255, 102, 102));
-        btnvtasdia1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnvtasdia1.setForeground(new java.awt.Color(0, 0, 0));
-        btnvtasdia1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida.png"))); // NOI18N
-        btnvtasdia1.setText("Cerrar Sesión");
-        btnvtasdia1.addActionListener(new java.awt.event.ActionListener() {
+        BtnCerrarsesion.setBackground(new java.awt.Color(255, 102, 102));
+        BtnCerrarsesion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        BtnCerrarsesion.setForeground(new java.awt.Color(0, 0, 0));
+        BtnCerrarsesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida.png"))); // NOI18N
+        BtnCerrarsesion.setText("Cerrar Sesión");
+        BtnCerrarsesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnvtasdia1ActionPerformed(evt);
+                BtnCerrarsesionActionPerformed(evt);
             }
         });
 
@@ -291,26 +291,28 @@ public class Interfazprincipal extends javax.swing.JFrame {
                     .addComponent(btnvtasdia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Btnusuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnvtasdia1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BtnCerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(21, 21, 21))
         );
         MenuabajoLayout.setVerticalGroup(
             MenuabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuabajoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(Btnusuarios)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(BtnProductos)
-                .addGap(29, 29, 29)
+                .addGap(30, 30, 30)
                 .addComponent(btnvtasdia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(btnvtasdia1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(BtnCerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
-        getContentPane().add(Menuabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -220, -1, 300));
+        getContentPane().add(Menuabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -300, -1, 300));
 
         Panelacambiar.setBackground(new java.awt.Color(255, 255, 255));
+        Panelacambiar.setName(""); // NOI18N
+        Panelacambiar.setOpaque(false);
         Panelacambiar.setPreferredSize(new java.awt.Dimension(600, 520));
 
         javax.swing.GroupLayout PanelacambiarLayout = new javax.swing.GroupLayout(Panelacambiar);
@@ -334,9 +336,10 @@ public class Interfazprincipal extends javax.swing.JFrame {
        cardLayout.show(Panelacambiar, "Ventas");
     }//GEN-LAST:event_BtnVentaActionPerformed
 
-    private void EstadísticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadísticasActionPerformed
-       cardLayout.show(Panelacambiar,"Pedido");
-    }//GEN-LAST:event_EstadísticasActionPerformed
+    private void BtnEstadísticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEstadísticasActionPerformed
+               
+        cardLayout.show(Panelacambiar,"Pedido");
+    }//GEN-LAST:event_BtnEstadísticasActionPerformed
 
     private void BtnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClientesActionPerformed
         cardLayout.show(Panelacambiar,"Clientes");
@@ -350,9 +353,9 @@ public class Interfazprincipal extends javax.swing.JFrame {
         System.out.println(posicion);
         if (posicion < -1){
             
-            RSAnimation.setBajar(-220, 82, 1, 2,Menuabajo);              
+            RSAnimation.setBajar(-360, 82, 1, 2,Menuabajo);              
         }else {
-            RSAnimation.setSubir(82,-220, 1, 2,Menuabajo);
+            RSAnimation.setSubir(82,-360, 1, 2,Menuabajo);
         }
     }//GEN-LAST:event_ContraerActionPerformed
 
@@ -391,11 +394,12 @@ public class Interfazprincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JtxtbusquedaproductosActionPerformed
 
-    private void btnvtasdia1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvtasdia1ActionPerformed
+    private void BtnCerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarsesionActionPerformed
         LoginRegistro login = new LoginRegistro();
         login.setVisible(true);
+        Usuariosesion.getInstance().cerrarSesion();
         dispose();
-    }//GEN-LAST:event_btnvtasdia1ActionPerformed
+    }//GEN-LAST:event_BtnCerrarsesionActionPerformed
     
   
       
@@ -475,11 +479,14 @@ public class Interfazprincipal extends javax.swing.JFrame {
            BtnProductos.setEnabled(false);
            Btnusuarios.setEnabled(false);
            btnvtasdia.setEnabled(false);
+           BtnEstadísticas.setEnabled(false);
+           
        
        } else {
            BtnProductos.setEnabled(true);
            Btnusuarios.setEnabled(true);
            btnvtasdia.setEnabled(true);
+           BtnEstadísticas.setEnabled(true);
        }
    }
     
@@ -487,18 +494,18 @@ public class Interfazprincipal extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrarsesion;
     private javax.swing.JButton BtnClientes;
+    private javax.swing.JButton BtnEstadísticas;
     private javax.swing.JButton BtnProductos;
     private javax.swing.JButton BtnVenta;
     private javax.swing.JButton Btnusuarios;
     private javax.swing.JButton Contraer;
-    private javax.swing.JButton Estadísticas;
     private javax.swing.JTextField Jtxtbusquedaproductos;
     private javax.swing.JPanel Menuabajo;
     private javax.swing.JPanel PanelPadre;
     private javax.swing.JPanel Panelacambiar;
     private javax.swing.JButton btnvtasdia;
-    private javax.swing.JButton btnvtasdia1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

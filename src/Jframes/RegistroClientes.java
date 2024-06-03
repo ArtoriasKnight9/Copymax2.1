@@ -2,11 +2,10 @@ package Jframes;
 
 import Clases.Clientesclass;
 import Conexion.Conexion;
+import Filtros.FiltroLetras;
 import Filtros.Filtromayusculas;
 import Filtros.Filtronumeros;
 import Paneles.Clientes;
-import Paneles.Productos;
-import copymax.main;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
@@ -29,8 +28,12 @@ public class RegistroClientes extends javax.swing.JFrame {
         PlainDocument doc = (PlainDocument) TxtCelular.getDocument();
         doc.setDocumentFilter(new Filtronumeros());
         PlainDocument DOC =(PlainDocument) TxtRfc.getDocument();
-        DOC.setDocumentFilter(new Filtromayusculas());
-         
+        DOC.setDocumentFilter(new Filtromayusculas());     
+        PlainDocument docnombre =(PlainDocument) TxtNombre.getDocument();
+        docnombre.setDocumentFilter(new FiltroLetras());
+        PlainDocument docapellidos =(PlainDocument) TxtApellidos.getDocument();
+        docapellidos.setDocumentFilter(new FiltroLetras());
+               
     }
     
      private void agregarKeyListenerGlobal() {

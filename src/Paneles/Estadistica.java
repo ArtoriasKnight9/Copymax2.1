@@ -152,7 +152,7 @@ public class Estadistica extends javax.swing.JPanel {
             }
 
             // Guardar el archivo en la carpeta especificada
-            File archivo = new File(directorio, "VentasPorHora.png");
+            File archivo = new File(directorio, "VentasPorHora.png" +java.time.LocalDateTime.now().toString().replace(":", "-"));
             ChartUtils.saveChartAsPNG(archivo, chart, 800, 520);
             JOptionPane.showMessageDialog(this, "Gráfico descargado exitosamente en " + archivo.getAbsolutePath());
         } catch (IOException e) {

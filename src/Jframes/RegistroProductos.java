@@ -3,6 +3,7 @@ package Jframes;
 
 import Clases.Productoclass;
 import Conexion.Conexion;
+import Filtros.FiltroNumerosDecimales;
 import Filtros.Filtromayusculas;
 import Filtros.Filtronumeros;
 import Paneles.Productos;
@@ -40,6 +41,9 @@ public class RegistroProductos extends javax.swing.JFrame {
         initComponents();
         PlainDocument doc = (PlainDocument) TxtCantidad.getDocument();
         doc.setDocumentFilter(new Filtronumeros());
+        PlainDocument docuni = (PlainDocument) TxtPreciouni.getDocument();
+        docuni.setDocumentFilter(new FiltroNumerosDecimales());
+        
         
                 
     }

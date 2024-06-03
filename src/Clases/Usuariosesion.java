@@ -20,13 +20,14 @@ public class Usuariosesion {
         this.idUsuario=idusuario;
     }
 
-    public static Usuariosesion getInstance(String nombre, String rol, String nombreal,int idusuario) {
-        if (instance == null) {
-            instance = new Usuariosesion(nombre, rol,nombreal,idusuario);
-        }
-        return instance;
+    public static Usuariosesion getInstance(String nombre, String rol, String nombreal, int idusuario) {
+    if (instance == null) {
+        instance = new Usuariosesion(nombre, rol, nombreal, idusuario);
+    } else {
+        instance.setUsuario(nombre, rol, nombreal, idusuario);
     }
-
+    return instance;
+}
     public static Usuariosesion getInstance() {
         return instance;
     }

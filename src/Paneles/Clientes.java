@@ -4,6 +4,8 @@ package Paneles;
 import Clases.Clientesclass;
 import Conexion.Conexion;
 import Filtros.Filtronumeros;
+import Filtros.Letraseditor;
+import Filtros.Numeroseditor;
 import Jframes.RegistroClientes;
 import java.awt.Color;
 import javax.swing.*;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.table.TableCellEditor;
 
 public class Clientes extends javax.swing.JPanel {
 
@@ -30,11 +33,31 @@ public class Clientes extends javax.swing.JPanel {
         modelo.addColumn("Apellidos");
         modelo.addColumn("Celular");
         modelo.addColumn("RFC");
-         modelo.addColumn("Correo");
+        modelo.addColumn("Correo");
+        
         Tablaclientes.setModel(modelo);
         llenarTabla();
+        tabladiseño();
+    
     }
-
+    private void tabladiseño(){
+    // Asignar el editor personalizado a las columnas específicas
+        Tablaclientes.getColumnModel().getColumn(0).setCellEditor(new Letraseditor()); 
+        Tablaclientes.getColumnModel().getColumn(1).setCellEditor(new Letraseditor());
+        Tablaclientes.getColumnModel().getColumn(2).setCellEditor(new Numeroseditor());
+        if (Tablaclientes.getColumnModel().getColumnCount() > 0) {
+        
+        Tablaclientes.getColumnModel().getColumn(0).setMaxWidth(110);
+        Tablaclientes.getColumnModel().getColumn(1).setMaxWidth(150);       
+        Tablaclientes.getColumnModel().getColumn(2).setMaxWidth(120);
+        Tablaclientes.getColumnModel().getColumn(3).setMaxWidth(160); 
+        Tablaclientes.getColumnModel().getColumn(4).setMaxWidth(220);
+        
+       Tablaclientes.setRowHeight(30);
+     
+}
+    
+    }
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -65,6 +88,10 @@ public class Clientes extends javax.swing.JPanel {
         ));
         Tablaclientes.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(Tablaclientes);
+        Tablaclientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (Tablaclientes.getColumnModel().getColumnCount() > 0) {
+            Tablaclientes.getColumnModel().getColumn(0).setPreferredWidth(30);
+        }
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -188,6 +215,8 @@ public class Clientes extends javax.swing.JPanel {
         });
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
       
         int selectedRow = Tablaclientes.getSelectedRow();

@@ -10,6 +10,7 @@ import Clases.Usuariosesion;
 import Clases.Venta;
 import Clases.VentaManager;
 import Conexion.Conexion;
+import Filtros.Numeroseditor;
 import java.sql.ResultSet;
 import Jframes.Clientesticket;
 import java.awt.BorderLayout;
@@ -71,17 +72,28 @@ public class Ventas extends javax.swing.JPanel {
         addDeleteRowListener();
         ajustarInterfazSegunRol(Usuariosesion.getInstance().getRol());
         agregarKeyListenerGlobal();
-        lblusuarioactual.setText("Le atiende: " + Usuariosesion.getInstance().getNombrereal());
-        txtsubtotal.setText("0.00");
-        txtdescuento.setText("0.00");
-        txtimpuesto.setText("0.00");
-        txtTotal.setText("0.00");
+        inicializardatos();
         ventadatos= new Venta();
         ventadatos.setUsuario(Usuariosesion.getInstance().getNombrereal());
         if (clienteactual.equals("General")){
          ventadatos.setCliente(clienteactual);
         }
         
+    }
+    
+    private void inicializardatos(){
+    
+        lblusuarioactual.setText("Le atiende: " + Usuariosesion.getInstance().getNombrereal());
+        txtsubtotal.setText("0.00");
+        txtdescuento.setText("0.00");
+        txtimpuesto.setText("0.00");
+        txtTotal.setText("0.00");
+        
+    }
+    
+    public void actualizarDatosUsuario() {
+        ventadatos.setUsuario(Usuariosesion.getInstance().getNombrereal());
+        inicializardatos();
     }
 
     private void agregarKeyListenerGlobal() {
@@ -370,6 +382,9 @@ public class Ventas extends javax.swing.JPanel {
             jTableticket.getColumnModel().getColumn(3).setPreferredWidth(15);
             jTableticket.getColumnModel().getColumn(3).setMaxWidth(65);
         }
+        jTableticket.getColumnModel().getColumn(0).setCellEditor(new Numeroseditor());
+
+        jTableticket.setRowHeight(30);
 
         lblusuarioactual.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblusuarioactual.setForeground(new java.awt.Color(0, 0, 0));
@@ -409,14 +424,14 @@ public class Ventas extends javax.swing.JPanel {
                                 .addComponent(Btnclientesseleccion))
                             .addGroup(TicketLayout.createSequentialGroup()
                                 .addComponent(lblusuarioactual)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(TicketLayout.createSequentialGroup()
                         .addGroup(TicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                            .addComponent(Cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(Cuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 5, Short.MAX_VALUE))))
         );
         TicketLayout.setVerticalGroup(
             TicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

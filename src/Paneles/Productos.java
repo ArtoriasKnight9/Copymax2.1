@@ -5,6 +5,9 @@ import Clases.Clientesclass;
 import Clases.Productoclass;
 import Conexion.Conexion;
 import Filtros.Filtronumeros;
+import Filtros.Letraseditor;
+import Filtros.Numerosdecimaleseditor;
+import Filtros.Numeroseditor;
 import Jframes.RegistroClientes;
 import Jframes.RegistroProductos;
 import java.awt.Color;
@@ -32,8 +35,29 @@ public class Productos extends javax.swing.JPanel {
         modelo.addColumn("Categoría");
         Tablacproductos.setModel(modelo);
         llenarTabla();
+        tabladiseño();
     }
 
+    
+    private void tabladiseño(){
+    // Asignar el editor personalizado a las columnas específicas
+        
+        Tablacproductos.getColumnModel().getColumn(1).setCellEditor(new Letraseditor());
+        Tablacproductos.getColumnModel().getColumn(2).setCellEditor(new Numerosdecimaleseditor());
+        Tablacproductos.getColumnModel().getColumn(3).setCellEditor(new Numeroseditor());
+        if (Tablacproductos.getColumnModel().getColumnCount() > 0) {
+        
+        Tablacproductos.getColumnModel().getColumn(0).setMaxWidth(90);
+        Tablacproductos.getColumnModel().getColumn(1).setMaxWidth(175);       
+        Tablacproductos.getColumnModel().getColumn(2).setMaxWidth(110);
+        Tablacproductos.getColumnModel().getColumn(3).setMaxWidth(100); 
+        Tablacproductos.getColumnModel().getColumn(4).setMaxWidth(140);
+        
+       Tablacproductos.setRowHeight(30);
+     
+}
+    
+    }
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

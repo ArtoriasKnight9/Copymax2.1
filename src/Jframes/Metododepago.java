@@ -19,7 +19,7 @@ import javax.swing.event.DocumentListener;
  * @author Artorias<maxstell5549@hotmail.com>
  */
 public class Metododepago extends javax.swing.JFrame {
-    Ticket ticket;
+   
     Ventas ventasPanel ;
     private double totalVenta;
     Venta ventadatos;
