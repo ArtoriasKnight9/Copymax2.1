@@ -297,9 +297,9 @@ public class Interfazprincipal extends javax.swing.JFrame {
         MenuabajoLayout.setVerticalGroup(
             MenuabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuabajoLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(23, 23, 23)
                 .addComponent(Btnusuarios)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(BtnProductos)
                 .addGap(29, 29, 29)
                 .addComponent(btnvtasdia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)

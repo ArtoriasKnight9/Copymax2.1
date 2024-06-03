@@ -230,9 +230,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="Btnusuarios" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="BtnProductos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="btnvtasdia" min="-2" pref="40" max="-2" attributes="0"/>
