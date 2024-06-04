@@ -11,13 +11,13 @@ Este proyecto consiste en una aplicación de punto de venta específicamente dis
   ![image](https://github.com/ArtoriasKnight9/Copymax1.0/assets/168483578/90d0a71a-1cb5-4426-8cd1-402fb6031591)
   ![image](https://github.com/ArtoriasKnight9/Copymax1.0/assets/168483578/aeb918dc-6bd9-4600-b286-a0a950fbee1d)
 
-- **Roles de Usuario:** Los usuarios pueden registrarse como estándar o administrador, cada uno con sus propias limitaciones dentro del programa. Los administradores tienen acceso completo, mientras que los usuarios estándar tienen restricciones específicas.
+- **Roles de Usuario:** Los usuarios pueden registrarse como estándar o administrador (Con la previa autorizacion de un Administrador), cada uno con sus propias limitaciones dentro del programa. Los administradores tienen acceso completo, mientras que los usuarios estándar tienen restricciones específicas.
 
-- **Ventana de Ventas:** La interfaz principal presenta una vista previa del ticket de compra del cliente y una lista de productos con descripciones y precios en pesos mexicanos. Incluye una barra de búsqueda para filtrar productos.
+- **Ventana de Ventas:** La interfaz principal presenta una vista previa del ticket de compra del cliente y una lista de productos con descripciones y precios en pesos mexicanos. Incluye una barra de búsqueda para filtrar productos ademas de que se puede elegir a un cliente en especifico previamente registrado en la base de datos.
 
   ![image](https://github.com/ArtoriasKnight9/Copymax1.0/assets/168483578/799028b9-35ec-4299-9cd1-3b74f74e40b6)
 
-- **Ventana de Estadísticas:** Permite visualizar las ventas en intervalos de una hora durante el horario laboral (8:00 AM - 8:00 PM). Se pueden descargar las gráficas en formato PNG.
+- **Ventana de Estadísticas:** Permite visualizar las ventas (Solo administradores) en intervalos de una hora durante el horario laboral (8:00 AM - 8:00 PM). Se pueden descargar las gráficas en formato PNG.
 
   ![image](https://github.com/ArtoriasKnight9/Copymax1.0/assets/168483578/34497c4a-96f8-4478-9162-25dcc17357fb)
 
