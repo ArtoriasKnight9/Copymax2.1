@@ -48,7 +48,7 @@ Este proyecto consiste en una aplicación de punto de venta específicamente dis
 4. **Cerrar Sesión:** Cierre de sesión actual.
 
 ## Generar Venta
-En este video podemos ver el como se genera una venta ----> 
+En este video podemos ver el como se genera una venta ----> https://youtu.be/1sGC7rZiJZA 
 
 ## Notas
 
